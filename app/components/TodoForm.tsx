@@ -1,29 +1,45 @@
 "use client";
 import { useState } from "react";
 
-export default function TodoForm({ addTask }: { addTask: (task: string) => void }) {
-  const [input, setInput] = useState("");
+export default function TodoForm() {
+  const [title, setTitle] = useState("");
+  const [success, setSuccess] =  useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
-      addTask(input);
-      setInput("");
-    }
-  };
+
+    const res = await fetch("/api/tasks", {
+      method: "POST",
+      body: JSON.stringify({ title }),
+    });
+    const data= await res.json();
+    console.log("Task saved:", data);
+    setTitle("");
+    setSuccess(true);
+
+    // hide after 3 seconds
+    setTimeout(() => setSuccess(false), 3000);
+    };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter a task..."
-        className="border rounded px-3 py-2 w-64"
-      />
-      <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-        Add
-      </button>
-    </form>
-  );
+  
+    <div>
+      <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+  
+        <input
+          // type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter a task..."
+          className="border rounded px-3 py-2 w-64"
+          />
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Add
+        </button>
+      </form>
+      {success && (
+        <p >Task Added successful ! </p>
+      )}
+    </div>
+  )
 }

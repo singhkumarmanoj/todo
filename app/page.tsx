@@ -16,9 +16,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-800 flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold mb-6">My To‑Do App</h1>
-      <TodoForm addTask={addTask} />
-      <TodoList tasks={tasks} removeTask={removeTask} />
+      <h1 className="text-2xl font-bold mb-6">My To‑Do App</h1>
+      <TodoForm />
+      <TodoList />
     </main>
   );
 }
