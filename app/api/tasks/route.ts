@@ -7,9 +7,17 @@ import Task from "@/models/Task";
 
 // GET all tasks
 export async function GET() {
-  await connectDB();
-  const tasks = await Task.find();
-  return NextResponse.json(tasks);
+  try{
+    await connectDB();
+    const tasks = await Task.find();
+    return NextResponse.json(tasks);
+  }catch(error: any){
+    console.error("Failed to fetch tasks", error.message);
+    return NextResponse.json(
+      {status: 'error', message: error.message},
+      {status: 500}
+    )
+  }
 }
 
 // POST new task

@@ -23,7 +23,9 @@ export default function TodoForm() {
 
   return (
   
-    <div>
+    <div className="bg-amber-800 w-100 h-30 m-4 p-5 rounded-2xl">
+      <h2>This is form of Todo </h2>
+
       <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
   
         <input
