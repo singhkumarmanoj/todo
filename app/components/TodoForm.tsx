@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function TodoForm() {
   const [title, setTitle] = useState("");
-  const [success, setSuccess] =  useState(false);
 
   const [status, setStatus] = useState("");
 
@@ -17,10 +16,8 @@ export default function TodoForm() {
     const data= await res.json();
     console.log("Task saved:", data);
     setTitle("");
-    setSuccess(true);
 
     // hide after 3 seconds
-    setTimeout(() => setSuccess(false), 3000);
     };
 
     const handleClick = ()=> {
@@ -54,9 +51,6 @@ export default function TodoForm() {
 
 
       </form>
-      {success && (
-        <p >Task Added successful ! </p>
-      )}
     </div>
   )
 }
