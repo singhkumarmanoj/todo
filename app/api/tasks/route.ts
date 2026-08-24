@@ -10,13 +10,30 @@ export async function GET() {
   try{
     await connectDB();
     const tasks = await Task.find();
-    return NextResponse.json(tasks);
+    // return NextResponse.json(tasks);
+
+    //
+    return NextResponse.json({
+      status: "success",
+      dbConnected: true,
+      tasks,
+  });
+    //
+
+    
   }catch(error: any){
     console.error("Failed to fetch tasks", error.message);
-    return NextResponse.json(
-      {status: 'error', message: error.message},
-      {status: 500}
-    )
+    // return NextResponse.json(
+    //   {status: 'error', message: error.message},
+    //   {status: 500}
+
+    return NextResponse.json({
+      status: 'error',
+      dbConnected: false,
+      tasks: [],
+      message: error.message,
+    }, { status: 500});
+
   }
 }
 

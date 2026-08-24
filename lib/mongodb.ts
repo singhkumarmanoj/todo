@@ -15,14 +15,14 @@ const connectDB = async () => {
     }
 
     try {
-        if (!process.env.URI) {
+        if (!process.env.MONGODB_URI) {
             throw new Error("MONGODB_URI not found in environment variables");
         }
 
         console.log("🔄 Connecting to MongoDB...");
 
         // 2. Connect to MongoDB
-        const db = await mongoose.connect(process.env.URI!, {
+        const db = await mongoose.connect(process.env.MONGODB_URI!, {
             dbName: "todoapp",
             serverSelectionTimeoutMS: 30000,
         });
