@@ -25,7 +25,7 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-6">My to do Application</h1>
 
 
-      <p className={dbConnected ?  "text-green-500" : "text-red-600"}>{dbConnected ? "Connected" : "mongo atlas is not connected" }</p>
+      <p className={dbConnected ?  "text-green-500" : "text-red-600"}>{dbConnected ? "Connected" : "Atlas Mongo is not connected!!!" }</p>
 
 
       <TodoForm />
