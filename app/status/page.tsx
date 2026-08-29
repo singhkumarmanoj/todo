@@ -7,7 +7,7 @@ export default function TaskForm() {
 
   const handleSubmit = () => {
     if (title.trim() === "") {
-      setError("❌ Input cannot be empty");
+      setError("Input cannot be empty");
       return;
     }
     setError("");
