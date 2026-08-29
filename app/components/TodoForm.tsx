@@ -46,7 +46,7 @@ export default function TodoForm() {
 
   return (
   
-    <div className="bg-gray-900 w-auto h-35 m-4 p-5 rounded-xl">
+    <div className="bg-gray-900 w-auto h-50 m-4 p-5 rounded-xl">
       <h2 className="text-xl font-bold text-blue-700">Todo Submitted from here </h2>
 
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-2  ">
@@ -66,8 +66,8 @@ export default function TodoForm() {
 
       </form>
         <div className="block">
-      {status && <p className="mt-2 text-green-400">{status}</p>}
-      {error && <p className="mt-2 text-red-400">{error}</p>}
+      {status && <p className="mt-2 text-green-700">{status}</p>}
+      {error && <p className="mt-2 text-red-800">{error}</p>}
         </div>
     </div>
   )
