@@ -21,10 +21,10 @@ export default function TaskList() {
   }, []);
   return (
     <div className="p-2 w-80 bg-gray-950 rounded">
-      <h2 className="text-white mb-2">Task Lists</h2>
-      <ul className="list-disc list-inside text-gray-200">
+      <h2 className="text-blue-700 mb-2 text-md font-bold">Task Lists</h2>
+      <ul className="list-disc list-inside text-amber-200">
         {tasks.map((task) => (
-          <li key={task._id}>{task.title}</li>
+          <li  key={task._id}>{task.title}</li>
         ))}
       </ul>
     </div>

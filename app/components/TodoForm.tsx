@@ -15,7 +15,13 @@ export default function TodoForm() {
     if(title.trim() === ""){
       setError("Please input field ");
       setStatus("");
-      return
+      setTimeout(() => {
+        setError("");
+        
+      }, 1500);
+
+      return;
+    
     }
 
     const res = await fetch("/api/tasks", {
@@ -29,7 +35,13 @@ export default function TodoForm() {
     };
 
     const handleClick = ()=> {
-      setStatus("sending...");
+      setStatus("sending to atlas ...");
+
+      setTimeout(() => {
+        setStatus("");
+        
+      }, 3000);
+      return;
     };
 
   return (
