@@ -26,7 +26,7 @@ export default function TaskForm() {
       />
       <button
         onClick={handleSubmit}
-        className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
+        className="ml-1 px-1 py-1 bg-blue-600 text-white rounded"
       >
         Submit
       </button>

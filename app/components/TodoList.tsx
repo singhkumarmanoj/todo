@@ -20,7 +20,7 @@ export default function TaskList() {
     fetchTasks();
   }, []);
   return (
-    <div className="p-2 w-80 bg-gray-950 rounded">
+    <div className="p-2 w-80 ml-2 mr-2 bg-gray-950 rounded">
       <h2 className="text-blue-700 mb-2 text-md font-bold">Task Lists</h2>
       <ul className="list-disc list-inside text-amber-200">
         {tasks.map((task) => (
