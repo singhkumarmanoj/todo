@@ -30,8 +30,8 @@ export default function TodoForm() {
 
   return (
   
-    <div className="bg-amber-800 w-100 h-30 m-4 p-5 rounded-2xl">
-      <h2>This is form of Todo </h2>
+    <div className="bg-gray-900 w-100 h-30 m-4 p-5 rounded-xl">
+      <h2 className="text-xl font-bold text-blue-900">Todo Submitted from here </h2>
 
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-2 mb-4">
   

@@ -1,19 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function TaskList() {
-  const [tasks] = useState([
-    { id: 1, title: "Learn Next.js" },
-    { id: 2, title: "Build Todo App" },
-    { id: 3, title: "Deploy to Vercel" },
-  ]);
+  const [tasks, setTasks] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const res = await fetch("/api/tasks");
+        const data = await res.json();
+        setTasks(data.tasks);
+      } catch (err) {
+        console.error("Failed to fetch tasks", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTasks();
+  }, []);
   return (
-    <div className="p-4 bg-amber-900 rounded">
+    <div className="p-2 w-80 bg-gray-950 rounded">
       <h2 className="text-white mb-2">Task Lists</h2>
       <ul className="list-disc list-inside text-gray-200">
         {tasks.map((task) => (
-          <li key={task.id}>{task.title}</li>
+          <li key={task._id}>{task.title}</li>
         ))}
       </ul>
     </div>
