@@ -24,9 +24,7 @@ export default function Home() {
     <main className="min-h-screen bg-gray-800 flex flex-col items-center p-6">
       <h1 className="text-2xl font-bold mb-6">My to do Application</h1>
 
-
-      <p className={dbConnected ?  "text-green-500" : "text-red-600"}>{dbConnected ? "Connected" : "Atlas Mongo is not connected!!!" }</p>
-
+      <p className={dbConnected ?  "bg-green-500 w-3 h-3 rounded-xl" : "bg-red-600 w-3 h-3 rounded-xl "}>{dbConnected ? "" : "" }</p>
 
       <TodoForm />
       <TodoList />
