@@ -40,8 +40,8 @@ export async function GET() {
 // POST new task
 export async function POST(req: Request) {
   await connectDB();
-  const { title1 } = await req.json();
-  const task = await Task.create({ title1 });
+  const { title } = await req.json();
+  const task = await Task.create({ title });
   return NextResponse.json(task);
 }
 
