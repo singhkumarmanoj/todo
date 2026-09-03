@@ -25,12 +25,14 @@ export default function TaskList() {
       <h2 className="text-blue-700 mb-2 text-lg font-bold">Task Lists(del not working)</h2>
       <ul className="list-disc list-inside text-amber-200">
         {tasks.map((task) => (
-          <li className="flex items-center justify-between gap-1"  key={task._id}>
+          <li className="flex items-center justify-between gap-1 border mb-2"  key={task._id}>
               <p className="bg-blue-700 w-1.5 h-1.5 rounded-3xl "></p>
               <span className="flex-1 text-md">{task.title}</span>
                {/* {task.title} */}
               <CircleX  className="flex-1 cursor-pointer text-red-800" size={20}  />
+              {/* <hr className="w-full" /> */}
           </li>
+          
         ))}
       </ul>
     </div>
